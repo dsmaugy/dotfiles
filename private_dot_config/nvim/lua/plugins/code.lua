@@ -22,6 +22,6 @@ return {
   },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "glsl" } },
+    opts = { ensure_installed = { "glsl", "gotmpl" } },
   },
 }
