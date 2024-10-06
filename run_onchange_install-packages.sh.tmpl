@@ -1,0 +1,18 @@
+#!/bin/bash
+
+# Tmux Themes
+mkdir -p ~/.config/tmux/plugins/catppuccin
+git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+
+{{ if eq .chezmoi.os "darwin" }}
+brew install ripgrep
+brew install deno
+{{ end }}
+
+{{ if eq .chezmoi.osRelease.idLike "debian" }}
+sudo apt-get install ripgrep
+{{ end }}
+
+{{ if eq .chezmoi.osRelease.idLike "arch" }}
+yay -S ripgrep
+{{ end }}
