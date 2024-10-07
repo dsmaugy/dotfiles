@@ -23,13 +23,13 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "glsl", "gotmpl" } },
-    config = function()
-      vim.filetype.add({
-        extension = {
-          gotmpl = "gotmpl",
-          tmpl = "gotmpl",
-        },
-      })
-    end,
+    -- config = function()
+    --   vim.filetype.add({
+    --     extension = {
+    --       gotmpl = "gotmpl",
+    --       tmpl = "gotmpl",
+    --     },
+    --   })
+    -- end,
   },
 }
