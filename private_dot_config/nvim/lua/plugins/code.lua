@@ -4,7 +4,6 @@ return {
   { "iamcco/markdown-preview.nvim", enabled = "false" },
   {
     "toppair/peek.nvim",
-    event = { "VeryLazy" },
     build = "deno task --quiet build:fast",
     config = function()
       require("peek").setup({
@@ -13,6 +12,7 @@ return {
       vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
       vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
     end,
+    keys = { { "<leader>cp", "<cmd>:PeekOpen<cr>", desc = "Markdown Preview", ft = "markdown" } },
   },
 
   -- LSP / Color Formatting / Linting
@@ -23,13 +23,27 @@ return {
   {
     "nvim-treesitter/nvim-treesitter",
     opts = { ensure_installed = { "glsl", "gotmpl" } },
-    -- config = function()
-    --   vim.filetype.add({
-    --     extension = {
-    --       gotmpl = "gotmpl",
-    --       tmpl = "gotmpl",
-    --     },
-    --   })
-    -- end,
+    ---@param opts TSConfig
+    config = function(_, opts)
+      if type(opts.ensure_installed) == "table" then
+        opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
+      end
+      require("nvim-treesitter.configs").setup(opts)
+
+      vim.filetype.add({
+        extension = {
+          gotmpl = "gotmpl",
+          tmpl = "gotmpl",
+        },
+      })
+
+      -- THANK YOU KEVIN NGUYEN
+      -- https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-10714144
+      vim.treesitter.query.add_directive("inject-go-tmpl!", function(_, _, bufnr, _, metadata)
+        local fname = vim.fs.basename(vim.api.nvim_buf_get_name(bufnr))
+        local _, _, ext, _ = string.find(fname, ".*%.(%a+)(%.%a+)")
+        metadata["injection.language"] = ext
+      end, {})
+    end,
   },
 }
