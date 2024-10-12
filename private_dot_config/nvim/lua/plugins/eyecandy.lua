@@ -6,11 +6,18 @@ return {
     colorscheme = "catppuccin-latte",
   } },
 
-  -- Terminal background matching
+  -- Mini Nvim Setup
   {
     "echasnovski/mini.nvim",
     config = function()
+      -- Terminal background matching
       require("mini.misc").setup_termbg_sync()
+
+      require("mini.icons").setup({
+        filetype = {
+          gotmpl = { glyph = "󰴑", hl = "MiniIconsBlue" },
+        },
+      })
     end,
   },
 }
