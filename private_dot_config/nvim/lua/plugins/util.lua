@@ -59,17 +59,6 @@ return {
           bufferline.go_to(n, true)
         end, { desc = "[Bufferline] Go to " .. n .. "th buffer" })
       end
-
-      -- vim.keymap.set("n", "<leader>bg", function()
-      --   vim.ui.input({ prompt = "Enter buffer ID: " }, function(input)
-      --     local buf_pos = tonumber(input)
-      --     if buf_pos then
-      --       bufferline.go_to(buf_pos, true)
-      --     else
-      --       print("Invalid buffer num!")
-      --     end
-      --   end)
-      -- end, { noremap = true, silent = true })
     end,
   },
 }
