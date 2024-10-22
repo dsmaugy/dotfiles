@@ -1,6 +1,9 @@
 #!/bin/bash
 
 # Tmux Themes
-mkdir -p ~/.config/tmux/plugins/catppuccin
-git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+catppucin_dir=~/.config/tmux/plugins/catppucci
+if [ ! -d $catppucin_dir ]; then
+  mkdir -p ~/.config/tmux/plugins/catppuccin
+  git clone https://github.com/catppuccin/tmux.git ~/.config/tmux/plugins/catppuccin/tmux
+fi
 
