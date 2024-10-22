@@ -1,0 +1,5 @@
+#!/bin/bash
+
+{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "arch") }}
+yay -S ripgrep
+{{ end }}

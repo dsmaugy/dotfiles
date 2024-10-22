@@ -1,0 +1,8 @@
+#!/bin/bash
+
+{{ if eq .chezmoi.os "darwin" }}
+brew install ripgrep
+brew install deno
+brew install fd
+{{ end }}
+
