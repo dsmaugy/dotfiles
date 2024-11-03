@@ -46,6 +46,18 @@ return {
       end, {})
     end,
   },
+  {
+    "windwp/nvim-ts-autotag",
+    event = "LazyFile",
+    config = function(_, opts)
+      -- Autocomplete HTML tags in html template files
+      require("nvim-ts-autotag").setup({
+        aliases = {
+          ["gotmpl"] = "html",
+        },
+      })
+    end,
+  },
 
   -- Code Editing
   {
