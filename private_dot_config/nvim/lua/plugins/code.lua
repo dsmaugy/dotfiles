@@ -54,7 +54,17 @@ return {
     opts = {},
   },
   {
+    -- Disable mini pairs to use nvim-autopairs instead
     "echasnovski/mini.pairs",
     enabled = false,
+  },
+  {
+    "gbprod/cutlass.nvim",
+    opts = {
+      registers = {
+        delete = '"',
+        change = '"',
+      },
+    },
   },
 }

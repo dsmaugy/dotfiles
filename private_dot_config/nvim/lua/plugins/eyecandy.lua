@@ -8,10 +8,12 @@ return {
 
   -- Mini Nvim Setup
   {
-    "echasnovski/mini.nvim",
+    "echasnovski/mini.misc",
     config = function()
       -- Terminal background matching
-      require("mini.misc").setup_termbg_sync()
+      local mini = require("mini.misc")
+      mini.setup()
+      mini.setup_termbg_sync()
     end,
   },
 }
