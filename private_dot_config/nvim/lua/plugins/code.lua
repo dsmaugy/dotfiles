@@ -17,6 +17,27 @@ return {
 
   -- LSP / Color Formatting / Linting
   {
+    "neovim/nvim-lspconfig",
+    ---@class PluginLspOpts
+    opts = {
+      ---@type lspconfig.options
+      servers = {
+        gopls = {
+          settings = {
+            gopls = {
+              usePlaceholders = false,
+              analyses = {
+                -- this analyzer is deprecated now
+                -- see https://go-review.googlesource.com/c/tools/+/590375
+                fieldalignment = false,
+              },
+            },
+          },
+        },
+      },
+    },
+  },
+  {
     "williamboman/mason.nvim",
     opts = { ensure_installed = { "actionlint", "glsl_analyzer" } },
   },

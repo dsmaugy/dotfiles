@@ -5,3 +5,5 @@
 vim.opt.linebreak = true
 vim.opt.wrap = true
 vim.opt.mouse = ""
+
+vim.fn.setenv("GOFUMPT_SPLIT_LONG_LINES", "on")
