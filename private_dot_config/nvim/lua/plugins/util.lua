@@ -13,33 +13,7 @@ return {
       },
     },
   },
-  {
-    "nvim-telescope/telescope.nvim",
-    dependencies = {
-      {
-        "nvim-telescope/telescope-live-grep-args.nvim",
-        -- This will not install any breaking changes.
-        -- For major updates, this must be adjusted manually.
-        version = "^1.0.0",
-      },
-    },
-    config = function()
-      local telescope = require("telescope")
-
-      telescope.setup({
-        pickers = {
-          find_files = {
-            hidden = true,
-            no_ignore = false,
-          },
-        },
-      })
-
-      -- then load the extension
-      telescope.load_extension("live_grep_args")
-      vim.keymap.set("n", "<leader>fg", ":lua require('telescope').extensions.live_grep_args.live_grep_args()<CR>")
-    end,
-  },
+  { "ibhagwan/fzf-lua", opts = { files = { hidden = true }, grep = { hidden = true } } },
   {
     "akinsho/bufferline.nvim",
     opts = {
@@ -53,7 +27,6 @@ return {
     config = function(_, opts)
       local bufferline = require("bufferline")
       bufferline.setup(opts)
-      -- vim.api.nvim_set_hl(0, "BufferLineIndicatorSelected", { underline = "#ff0000", fg = "#ff0000" })
       for n = 1, 9 do
         vim.keymap.set("n", "g" .. n, function()
           bufferline.go_to(n, true)

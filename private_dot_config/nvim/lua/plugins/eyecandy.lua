@@ -16,4 +16,10 @@ return {
       -- mini.setup_termbg_sync()
     end,
   },
+
+  { "snacks.nvim", opts = {
+    scroll = { enabled = false },
+  } },
+
+  { "folke/which-key.nvim", opts = { preset = "modern" } },
 }
