@@ -7,3 +7,5 @@ vim.opt.wrap = true
 vim.opt.mouse = ""
 
 vim.fn.setenv("GOFUMPT_SPLIT_LONG_LINES", "on")
+
+vim.g.lazyvim_python_lsp = "pyright"

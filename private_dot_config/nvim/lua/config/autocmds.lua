@@ -21,3 +21,19 @@
 --     io.write("\027]111\027\\")
 --   end,
 -- })
+--
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = "*.py",
+  callback = function()
+    if vim.b.ruff_formatting then
+      return
+    end
+
+    vim.b.ruff_formatting = true
+    LazyVim.lsp.action["source.organizeImports"]()
+    vim.defer_fn(function()
+      vim.cmd("silent! write")
+      vim.b.ruff_formatting = false
+    end, 80)
+  end,
+})
