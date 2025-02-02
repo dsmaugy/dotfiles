@@ -37,3 +37,10 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     end, 80)
   end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+  pattern = "*",
+  callback = function()
+    vim.cmd("silent! cd " .. vim.fn.expand("%:p:h"))
+  end,
+})
