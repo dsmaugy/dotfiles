@@ -13,7 +13,6 @@ return {
       -- Terminal background matching
       local mini = require("mini.misc")
       mini.setup()
-      -- mini.setup_termbg_sync()
     end,
   },
 

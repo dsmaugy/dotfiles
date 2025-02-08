@@ -1,19 +1,19 @@
 return {
 
   -- Markdown Setup
-  { "iamcco/markdown-preview.nvim", enabled = "false" },
-  {
-    "toppair/peek.nvim",
-    build = "deno task --quiet build:fast",
-    config = function()
-      require("peek").setup({
-        theme = "light",
-      })
-      vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-      vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-    end,
-    keys = { { "<leader>cp", "<cmd>:PeekOpen<cr>", desc = "Markdown Preview", ft = "markdown" } },
-  },
+  -- { "iamcco/markdown-preview.nvim", enabled = "false" },
+  -- {
+  --   "toppair/peek.nvim",
+  --   build = "deno task --quiet build:fast",
+  --   config = function()
+  --     require("peek").setup({
+  --       theme = "light",
+  --     })
+  --     vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
+  --     vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
+  --   end,
+  --   keys = { { "<leader>cp", "<cmd>:PeekOpen<cr>", desc = "Markdown Preview", ft = "markdown" } },
+  -- },
 
   -- LSP / Color Formatting / Linting
   {
