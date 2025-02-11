@@ -1,20 +1,5 @@
 return {
 
-  -- Markdown Setup
-  -- { "iamcco/markdown-preview.nvim", enabled = "false" },
-  -- {
-  --   "toppair/peek.nvim",
-  --   build = "deno task --quiet build:fast",
-  --   config = function()
-  --     require("peek").setup({
-  --       theme = "light",
-  --     })
-  --     vim.api.nvim_create_user_command("PeekOpen", require("peek").open, {})
-  --     vim.api.nvim_create_user_command("PeekClose", require("peek").close, {})
-  --   end,
-  --   keys = { { "<leader>cp", "<cmd>:PeekOpen<cr>", desc = "Markdown Preview", ft = "markdown" } },
-  -- },
-
   -- LSP / Color Formatting / Linting
   {
     "neovim/nvim-lspconfig",
@@ -36,10 +21,6 @@ return {
         },
       },
     },
-  },
-  {
-    "williamboman/mason.nvim",
-    opts = { ensure_installed = { "actionlint", "glsl_analyzer" } },
   },
   {
     "nvim-treesitter/nvim-treesitter",
@@ -78,26 +59,5 @@ return {
         },
       })
     end,
-  },
-
-  -- Code Editing
-  {
-    "windwp/nvim-autopairs",
-    event = "InsertEnter",
-    opts = {},
-  },
-  {
-    -- Disable mini pairs to use nvim-autopairs instead
-    "echasnovski/mini.pairs",
-    enabled = false,
-  },
-  {
-    "gbprod/cutlass.nvim",
-    opts = {
-      registers = {
-        delete = '"',
-        change = '"',
-      },
-    },
   },
 }
