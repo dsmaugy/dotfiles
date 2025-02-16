@@ -1,13 +1,30 @@
 return {
-  "echasnovski/mini.nvim",
-  config = function()
-    -- Terminal background matching
-    require("mini.misc").setup_termbg_sync()
-
-    require("mini.icons").setup({
+  {
+    "echasnovski/mini.surround",
+    opts = {
+      mappings = {
+        add = ";;",
+        delete = ";d",
+        find = ";f",
+        find_left = ";F",
+        highlight = ";h",
+        replace = ";r",
+        update_n_lines = ";n",
+      },
+    },
+  },
+  {
+    "echasnovski/mini.icons",
+    opts = {
       filetype = {
         gotmpl = { glyph = "󰴑", hl = "MiniIconsBlue" },
       },
-    })
-  end,
+    },
+  },
+  {
+    "echasnovski/mini.misc",
+    config = function()
+      require("mini.misc").setup_termbg_sync()
+    end,
+  },
 }
