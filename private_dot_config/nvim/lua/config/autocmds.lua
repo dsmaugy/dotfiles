@@ -14,7 +14,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
     vim.defer_fn(function()
       vim.cmd("silent! write")
       vim.b.ruff_formatting = false
-    end, 80)
+    end, 95)
   end,
 })
 
