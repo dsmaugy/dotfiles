@@ -4,7 +4,18 @@ return {
     picker = {
       sources = {
         explorer = {
-          hidden = true,
+          hidden = true, -- show hidden files
+        },
+      },
+
+      win = {
+        input = {
+          keys = {
+            ["<c-t>"] = {
+              "trouble_open",
+              mode = { "n", "i" },
+            },
+          },
         },
       },
     },
