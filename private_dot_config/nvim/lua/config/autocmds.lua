@@ -27,5 +27,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
     local path = vim.fn.fnamemodify(vim.v.argv[3], ":p:h")
     vim.cmd('echom "Changing directory to 3rd argument: ' .. path .. '"')
     vim.cmd("silent! cd " .. path)
+
+--    require("persistence").load()
   end,
 })
