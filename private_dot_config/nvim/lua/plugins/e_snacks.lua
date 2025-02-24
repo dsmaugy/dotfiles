@@ -6,6 +6,9 @@ return {
         explorer = {
           hidden = true, -- show hidden files
         },
+        files = {
+          hidden = true,
+        },
       },
 
       win = {
