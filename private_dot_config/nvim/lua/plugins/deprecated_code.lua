@@ -24,7 +24,7 @@ return {
   -- },
   {
     "nvim-treesitter/nvim-treesitter",
-    opts = { ensure_installed = { "glsl", "gotmpl" } },
+    opts = { ensure_installed = { "glsl", "gotmpl", "java" } },
     ---@param opts TSConfig
     config = function(_, opts)
       if type(opts.ensure_installed) == "table" then
