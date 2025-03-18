@@ -12,6 +12,6 @@ table.insert(config.hyperlink_rules, {
 })
 
 config.enable_wayland = false
-config.window_background_opacity = 0.9
+config.window_background_opacity = 0.93
 config.window_decorations = "RESIZE"
 return config
