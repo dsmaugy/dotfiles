@@ -13,5 +13,7 @@ table.insert(config.hyperlink_rules, {
 
 config.enable_wayland = false
 config.window_background_opacity = 0.93
-config.window_decorations = "RESIZE"
+config.window_decorations = "TITLE | RESIZE"
+
+config.hide_tab_bar_if_only_one_tab = true
 return config
