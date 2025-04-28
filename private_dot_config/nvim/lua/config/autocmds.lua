@@ -20,14 +20,12 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.api.nvim_create_autocmd("VimEnter", {
   callback = function()
-    for i, arg in ipairs(vim.v.argv) do
-      vim.cmd('echom "Arg ' .. i .. ": " .. arg .. '"')
-    end
+    -- for i, arg in ipairs(vim.v.argv) do
+    --   vim.cmd('echom "Arg ' .. i .. ": " .. arg .. '"')
+    -- end
 
     local path = vim.fn.fnamemodify(vim.v.argv[3], ":p:h")
-    vim.cmd('echom "Changing directory to 3rd argument: ' .. path .. '"')
+    -- vim.cmd('echom "Changing directory to 3rd argument: ' .. path .. '"')
     vim.cmd("silent! cd " .. path)
-
---    require("persistence").load()
   end,
 })

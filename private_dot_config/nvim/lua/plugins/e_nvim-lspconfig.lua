@@ -12,8 +12,10 @@ return {
             },
           },
         },
-        html = {},
-        css = {},
+        html = {
+          filetypes = { "html", "gotmpl.html" },
+        },
+        cssls = {},
       },
     },
   },

@@ -27,7 +27,7 @@ return {
     "echasnovski/mini.icons",
     opts = {
       filetype = {
-        gotmpl = { glyph = "󰴑", hl = "MiniIconsBlue" },
+        ["gotmpl.html"] = { glyph = "󰴑", hl = "MiniIconsBlue" },
       },
     },
   },
