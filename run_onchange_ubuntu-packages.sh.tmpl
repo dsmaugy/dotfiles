@@ -1,6 +1,0 @@
-#!/bin/bash
-
-{{ if and (eq .chezmoi.os "linux") (eq .chezmoi.osRelease.idLike "debian") }}
-sudo apt-get install ripgrep
-{{ end }}
-
