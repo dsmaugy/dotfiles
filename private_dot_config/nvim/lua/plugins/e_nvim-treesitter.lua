@@ -20,6 +20,7 @@ return {
       },
     })
 
+    -- vim.treesitter.language.register("html", "gotmpl-html")
     -- THANK YOU KEVIN NGUYEN
     -- https://github.com/nvim-treesitter/nvim-treesitter/discussions/1917#discussioncomment-10714144
     vim.treesitter.query.add_directive("inject-go-tmpl!", function(_, _, bufnr, _, metadata)
