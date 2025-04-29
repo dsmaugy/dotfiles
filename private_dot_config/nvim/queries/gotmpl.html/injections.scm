@@ -1,3 +1,4 @@
+;; this doesn't actually work
 ;; Inject Go template language inside {{ ... }} blocks
 ((template_action) @injection.content
  (#set! injection.language "gotmpl"))
