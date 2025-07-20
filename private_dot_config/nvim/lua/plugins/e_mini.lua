@@ -34,7 +34,8 @@ return {
   {
     "echasnovski/mini.misc",
     config = function()
-      require("mini.misc").setup_termbg_sync()
+      -- some weirdness on tmux
+      -- require("mini.misc").setup_termbg_sync()
     end,
   },
 }
