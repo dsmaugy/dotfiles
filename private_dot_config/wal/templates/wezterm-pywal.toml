@@ -1,0 +1,70 @@
+[metadata]
+name = "wezterm-pywal"
+author = "me"
+
+[colors]
+scrollbar_thumb = "#824d5b"
+split = "#e4dcd4"
+
+foreground = "{foreground}"
+background = "{background}"
+cursor_bg = "{cursor}"
+cursor_border = "{cursor}"
+cursor_fg = "{background}"
+compose_cursor = "{color1}"
+selection_bg = "{color4}"
+selection-fg = "{foreground}"
+visual_bell = "{foreground}"
+ansi = ["{color0}", "{color1}", "{color2}", "{color3}", "{color4}", "{color5}", "{color6}", "{color7}"]
+brights = ["{color8}", "{color9}", "{color10}", "{color11}", "{color12}", "{color13}", "{color14}", "{color15}"]
+
+
+[colors.indexed]
+16 = "#a440b5"
+17 = "#955f61"
+
+[colors.tab_bar]
+background = "#e4dcd4"
+inactive_tab_edge = "#e4dcd4"
+inactive_tab_edge_hover = "#dbd1dd"
+
+[colors.tab_bar.active_tab]
+bg_color = "#824d5b"
+fg_color = "#f6f2ee"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab]
+bg_color = "#dbd1dd"
+fg_color = "#643f61"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.inactive_tab_hover]
+bg_color = "#d3c7bb"
+fg_color = "#3d2b5a"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab]
+bg_color = "#f6f2ee"
+fg_color = "#643f61"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
+[colors.tab_bar.new_tab_hover]
+bg_color = "#d3c7bb"
+fg_color = "#3d2b5a"
+intensity = "Normal"
+italic = false
+strikethrough = false
+underline = "None"
+
