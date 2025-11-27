@@ -1,0 +1,4 @@
+[any]
+path = "/home/darwin/wallpapers"
+duration = "30m"
+exec = "/home/darwin/wallpapers/on_change.sh"
