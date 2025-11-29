@@ -1,0 +1,20 @@
+{{ if eq. .chezmoi.hostname "nexus" }}
+
+monitor=DP-1,1920x1080@60,0x0,1
+monitor=HDMI-A-1,1680x1050@60,1920x0,1
+
+workspace= name:1, monitor:DP-1
+
+bind = , XF86Launch5, exec, /home/darwin/scripts/Pipewire-sound-sink-switcher/sound_sink_switcher.sh
+bind = , XF86LaunchA, exec, /home/darwin/scripts/replay/save-replay.sh
+
+input {
+    # sensitivity = 1
+}
+
+{{ else if eq .chezmoi.hostname "mazamun" }}
+
+monitor=,preferred,auto,auto
+monitor = eDP-1, 2880x1920@120, 0x0, 1.66667, vrr, 1
+
+{{ end }}
