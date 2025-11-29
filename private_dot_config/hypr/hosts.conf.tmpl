@@ -7,6 +7,8 @@ workspace= name:1, monitor:DP-1
 
 bind = , XF86Launch5, exec, /home/darwin/scripts/Pipewire-sound-sink-switcher/sound_sink_switcher.sh
 bind = , XF86LaunchA, exec, /home/darwin/scripts/replay/save-replay.sh
+# Not sure why stop needs to be manually defined
+bind = , XF86AudioStop, exec, playerctl stop
 
 input {
     # sensitivity = 1
