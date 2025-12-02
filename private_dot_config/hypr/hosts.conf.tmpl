@@ -10,6 +10,8 @@ bind = , XF86LaunchA, exec, /home/darwin/scripts/replay/save-replay.sh
 # Not sure why stop needs to be manually defined
 bind = , XF86AudioStop, exec, playerctl stop
 
+exec-once = xrandr --output DP-1 --primary
+
 input {
     # sensitivity = 1
 }
