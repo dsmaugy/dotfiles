@@ -1,4 +1,6 @@
-[any]
+[default]
 path = "/home/darwin/wallpapers"
+sorting = "random"
 duration = "30m"
 exec = "/home/darwin/wallpapers/on_change.sh"
+group = 1
