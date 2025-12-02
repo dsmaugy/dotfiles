@@ -1,2 +1,4 @@
 background-opacity = 0.90
 theme = /home/darwin/.config/ghostty/themes
+
+font-feature = -calt
