@@ -16,6 +16,10 @@ input {
     # sensitivity = 1
 }
 
+exec-once = [workspace 1 silent] $terminal
+exec-once = [workspace 2 silent] vivaldi
+exec-once = [workspace 3 silent] discord
+
 {{ else if eq .chezmoi.hostname "mazamun" }}
 
 monitor=,preferred,auto,auto
