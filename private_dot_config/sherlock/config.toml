@@ -1,6 +1,6 @@
 [default_apps]
-terminal = "wezterm"
-browser = "/usr/bin/google-chrome-stable %U --new-window"
+terminal = "ghostty"
+browser = "/usr/bin/vivaldi %U --new-window"
 
 [units]
 lengths = "meters"
@@ -27,14 +27,12 @@ opacity = 1.0
 mod_key_ascii = ["⇧", "⇧", "⌘", "⌘", "⎇", "✦", "✦", "⌘"]
 
 [behavior]
-cache = "~/.cache/sherlock/sherlock_desktop_cache.json"
-caching = false
-daemonize = false
 animate = true
+global_prefix = "uwsm app --"
 
 [binds]
-prev = "control-p"
-next = "control-n"
+up = "control-p"
+down = "control-n"
 
 [files]
 config = "~/.config/sherlock/config.toml"
