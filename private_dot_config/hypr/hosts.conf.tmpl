@@ -16,9 +16,9 @@ input {
     # sensitivity = 1
 }
 
-exec-once = [workspace 1 silent] $terminal
-exec-once = [workspace 2 silent] vivaldi
-exec-once = [workspace 3 silent] discord
+exec-once = [workspace 1 silent] uwsm app -- $terminal
+exec-once = [workspace 2 silent] uwsm app -- vivaldi
+exec-once = [workspace 3 silent] uwsm app -- discord
 
 {{ else if eq .chezmoi.hostname "mazamun" }}
 
