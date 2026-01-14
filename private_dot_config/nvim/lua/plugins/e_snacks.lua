@@ -4,7 +4,7 @@ return {
     terminal = {
       win = {
         keys = {
-          nav_k = { "<C-k>", "<C-k>", desc = "bruh", expr = true, mode = "t" },
+          nav_k = { "<C-k>", "<C-k>", desc = "Override Ctrl K", expr = true, mode = "t" },
         },
       },
     },
