@@ -7,3 +7,16 @@ for n = 1, 9 do
     require("bufferline").go_to(n, true)
   end, { desc = "[Bufferline] Go to " .. n .. "th buffer" })
 end
+
+-- vim.keymap.del({ "n", "t" }, "<C-m>")
+vim.keymap.set({ "n", "t" }, "<C-n>", function()
+  Snacks.terminal(nil, {
+    win = {
+      position = "float",
+      relative = "editor",
+      width = 0,
+      height = 0,
+      border = "rounded",
+    },
+  })
+end, { desc = "Toggle fullscreen terminal" })

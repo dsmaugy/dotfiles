@@ -48,7 +48,7 @@ return {
       sections = {
         {
           section = "terminal",
-          cmd = "chafa ~/.config/nvim/mirror.jpg --format symbols --size 60x17 --stretch; sleep .1",
+          cmd = "chafa ~/.config/nvim/mirror.jpg --format symbols --size 60x17 --stretch; sleep .01",
           height = 17,
           padding = 1,
         },
