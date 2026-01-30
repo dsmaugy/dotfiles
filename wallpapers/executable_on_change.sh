@@ -23,3 +23,9 @@ ags quit
 ags run /home/darwin/projects/grackle --gtk 4
 
 makoctl reload
+
+sleep 1
+if [[ $(hyprctl activewindow -j | jq '.fullscreen') == "2" ]]; then
+  hyprctl dispatch fullscreen 2
+  hyprctl dispatch fullscreen 2
+fi
