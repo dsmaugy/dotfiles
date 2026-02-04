@@ -3,7 +3,7 @@
 display=$1
 wallpaper=$2
 
-if [[ "$display" != "DP-1" ]]; then
+if [[ "$display" == *"HDMI"* ]]; then
   exit
 fi
 
@@ -19,13 +19,13 @@ tmux source-file /home/darwin/.tmux.conf
 cp /home/darwin/.cache/wal/hyprland-pywal.conf /home/darwin/.config/hypr/colors.conf
 
 cp /home/darwin/.cache/wal/colors.scss /home/darwin/projects/grackle/_colors.scss
-ags quit
-ags run /home/darwin/projects/grackle --gtk 4
+ags request reload-colors
 
+cp /home/darwin/.cache/wal/mako /home/darwin/.config/mako/colors
 makoctl reload
 
-sleep 1
-if [[ $(hyprctl activewindow -j | jq '.fullscreen') == "2" ]]; then
-  hyprctl dispatch fullscreen 2
-  hyprctl dispatch fullscreen 2
-fi
+# sleep 1
+# if [[ $(hyprctl activewindow -j | jq '.fullscreen') == "2" ]]; then
+#   hyprctl dispatch fullscreen 2
+#   hyprctl dispatch fullscreen 2
+# fi
