@@ -6,6 +6,8 @@ return {
         dim_inactive = true,
       },
     },
+    lazy = false,
+    priority = 1000,
   },
   {
     "LazyVim/LazyVim",

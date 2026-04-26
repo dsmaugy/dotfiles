@@ -1,5 +1,6 @@
 [default]
 path = "/home/darwin/wallpapers"
+# sorting = "descending"
 sorting = "random"
 duration = "30m"
 exec = "/home/darwin/wallpapers/on_change.sh"

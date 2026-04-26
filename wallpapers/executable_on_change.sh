@@ -24,6 +24,9 @@ ags request reload-colors
 cp /home/darwin/.cache/wal/mako /home/darwin/.config/mako/colors
 makoctl reload
 
+cp ~/.cache/wal/kvantum-pywal.kvconfig ~/.config/Kvantum/pywal/pywal.kvconfig
+cp ~/.cache/wal/kvantum-pywal.svg ~/.config/Kvantum/pywal/pywal.svg
+
 # sleep 1
 # if [[ $(hyprctl activewindow -j | jq '.fullscreen') == "2" ]]; then
 #   hyprctl dispatch fullscreen 2

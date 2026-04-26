@@ -1,6 +1,6 @@
 return {
   {
-    "echasnovski/mini.surround",
+    "nvim-mini/mini.surround",
     opts = {
       custom_surroundings = {
         ["("] = { output = { left = "(", right = ")" } },
@@ -24,7 +24,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.icons",
+    "nvim-mini/mini.icons",
     opts = {
       filetype = {
         ["gotmpl.html"] = { glyph = "󰴑", hl = "MiniIconsBlue" },
@@ -32,7 +32,7 @@ return {
     },
   },
   {
-    "echasnovski/mini.misc",
+    "nvim-mini/mini.misc",
     config = function()
       -- some weirdness on tmux
       -- require("mini.misc").setup_termbg_sync()
