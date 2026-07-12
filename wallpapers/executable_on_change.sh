@@ -17,6 +17,9 @@ cp /home/darwin/.cache/wal/tmux-pywal.conf /home/darwin/.tmux.conf
 tmux source-file /home/darwin/.tmux.conf
 
 cp /home/darwin/.cache/wal/hyprland-pywal.conf /home/darwin/.config/hypr/colors.conf
+# colors.conf is now read by hyprland.lua (no longer `source`d), so trigger a
+# reload explicitly instead of relying on Hyprland's sourced-file auto-reload.
+hyprctl reload >/dev/null 2>&1 || true
 
 cp /home/darwin/.cache/wal/colors.scss /home/darwin/projects/grackle/_colors.scss
 ags request reload-colors
