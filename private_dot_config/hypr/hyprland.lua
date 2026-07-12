@@ -13,15 +13,8 @@ Menu = "sherlock"
 ----------------
 
 -- Colors are generated dynamically by pywal-16 into ~/.config/hypr/colors.lua
--- (see the wallpaper on_change hook). That file is a Lua module returning the
--- palette as hex strings without the leading '#', which we load and turn into
--- rgba() values here. If it is missing or malformed we fall back to last-known
--- values, so the config never fails to load. A `hyprctl reload` (triggered by
--- the hook) re-runs this file to pick up new colors.
 local function read_pywal_colors()
 	local path = (os.getenv("HOME") or "") .. "/.config/hypr/colors.lua"
-	-- loadfile (not require) so `hyprctl reload` always re-reads from disk
-	-- rather than returning a cached module.
 	local chunk = loadfile(path)
 	if not chunk then
 		return {}
@@ -34,7 +27,6 @@ local function read_pywal_colors()
 end
 
 -- Compose an rgba() string from a pywal hex color (no '#') and a 2-digit alpha.
--- Returns nil when the color is absent so the caller's `or` fallback applies.
 local function rgba(hex, alpha)
 	if type(hex) ~= "string" or hex == "" then
 		return nil
