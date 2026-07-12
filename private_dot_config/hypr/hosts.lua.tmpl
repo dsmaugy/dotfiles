@@ -1,0 +1,38 @@
+{{ if eq .chezmoi.hostname "nexus" }}
+-- Relies on the global `terminal` variable defined in hyprland.lua.
+
+------------------
+---- MONITORS ----
+------------------
+
+hl.monitor({ output = "HDMI-A-1", mode = "2560x1440@240", position = "0x0", scale = 1, vrr = 2 })
+hl.monitor({ output = "DP-1", mode = "1920x1080@60", position = "2560x0", scale = 1 })
+
+hl.workspace_rule({ workspace = "name:1", monitor = "HDMI-A-1" })
+
+------------------
+---- KEYBINDS ----
+------------------
+
+-- these can be found via wev
+hl.bind("XF86Launch5", hl.dsp.exec_cmd("/home/darwin/scripts/Pipewire-sound-sink-switcher/sound_sink_switcher.sh"))
+hl.bind("XF86LaunchA", hl.dsp.exec_cmd("/home/darwin/scripts/replay/save-replay.sh"))
+-- Not sure why stop needs to be manually defined
+hl.bind("XF86AudioStop", hl.dsp.exec_cmd("playerctl stop"))
+
+-------------------
+---- AUTOSTART ----
+-------------------
+
+hl.on("hyprland.start", function()
+	hl.exec_cmd("xrandr --output HDMI-A-1 --primary")
+	hl.exec_cmd("uwsm app -- " .. terminal, { workspace = "1 silent" })
+	hl.exec_cmd("uwsm app -- vivaldi", { workspace = "2 silent" })
+	hl.exec_cmd("uwsm app -- discord", { workspace = "3 silent" })
+end)
+{{ else if eq .chezmoi.hostname "mazamun" }}
+
+monitor=,preferred,auto,auto
+monitor = eDP-1, 2880x1920@120, 0x0, 1.66667, vrr, 1
+
+{{ end }}

@@ -2,3 +2,5 @@ background-opacity = 0.90
 theme = /home/darwin/.config/ghostty/themes
 
 font-feature = -calt
+
+shell-integration-features = "sudo,ssh-terminfo,ssh-env"
