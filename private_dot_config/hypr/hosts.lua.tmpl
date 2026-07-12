@@ -1,3 +1,5 @@
+{{ if eq .chezmoi.hostname "nexus" }}
+
 -- Relies on the global `terminal` variable defined in hyprland.lua.
 
 ------------------
@@ -29,3 +31,8 @@ hl.on("hyprland.start", function()
 	hl.exec_cmd("uwsm app -- vivaldi", { workspace = "2 silent" })
 	hl.exec_cmd("uwsm app -- discord", { workspace = "3 silent" })
 end)
+
+{{ else if eq .chezmoi.hostname "mazamun" }}
+
+
+{{ end }}
