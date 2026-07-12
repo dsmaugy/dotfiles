@@ -12,33 +12,40 @@ Menu = "sherlock"
 ---- COLORS ----
 ----------------
 
--- Colors are generated dynamically by pywal-16 into ~/.config/hypr/colors.conf
--- (see the wallpaper on_change hook). We parse that file here and fall back to
--- the last-known values if it is missing, so the config never fails to load.
--- A `hyprctl reload` (triggered by the hook) re-runs this file to pick up new colors.
+-- Colors are generated dynamically by pywal-16 into ~/.config/hypr/colors.lua
+-- (see the wallpaper on_change hook). That file is a Lua module returning the
+-- palette as hex strings without the leading '#', which we load and turn into
+-- rgba() values here. If it is missing or malformed we fall back to last-known
+-- values, so the config never fails to load. A `hyprctl reload` (triggered by
+-- the hook) re-runs this file to pick up new colors.
 local function read_pywal_colors()
-	local colors = {}
-	pcall(function()
-		local path = (os.getenv("HOME") or "") .. "/.config/hypr/colors.conf"
-		local f = io.open(path, "r")
-		if not f then
-			return
-		end
-		for line in f:lines() do
-			local name, value = line:match("^%$([%w_]+)%s*=%s*(.-)%s*$")
-			if name and value and value ~= "" then
-				colors[name] = value
-			end
-		end
-		f:close()
-	end)
-	return colors
+	local path = (os.getenv("HOME") or "") .. "/.config/hypr/colors.lua"
+	-- loadfile (not require) so `hyprctl reload` always re-reads from disk
+	-- rather than returning a cached module.
+	local chunk = loadfile(path)
+	if not chunk then
+		return {}
+	end
+	local ok, result = pcall(chunk)
+	if ok and type(result) == "table" then
+		return result
+	end
+	return {}
+end
+
+-- Compose an rgba() string from a pywal hex color (no '#') and a 2-digit alpha.
+-- Returns nil when the color is absent so the caller's `or` fallback applies.
+local function rgba(hex, alpha)
+	if type(hex) ~= "string" or hex == "" then
+		return nil
+	end
+	return "rgba(" .. hex .. alpha .. ")"
 end
 
 local wal = read_pywal_colors()
-local activeBorderColor1 = wal.activeBorderColor1 or "rgba(38214Fee)"
-local activeBorderColor2 = wal.activeBorderColor2 or "rgba(465554ee)"
-local inactiveBorderColor = wal.inactiveBorderColor or "rgba(c0c2c255)"
+local activeBorderColor1 = rgba(wal.color9, "ee") or "rgba(38214Fee)"
+local activeBorderColor2 = rgba(wal.color12, "ee") or "rgba(465554ee)"
+local inactiveBorderColor = rgba(wal.foreground, "55") or "rgba(c0c2c255)"
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
