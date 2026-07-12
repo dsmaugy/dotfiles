@@ -4,9 +4,9 @@
 
 -- Global (not `local`) so host-specific config in hosts.lua can reference them,
 -- mirroring the old global `$terminal` / `$fileManager` / `$menu` variables.
-terminal = "ghostty"
-fileManager = "dolphin"
-menu = "sherlock"
+Terminal = "ghostty"
+FileManager = "dolphin"
+Menu = "sherlock"
 
 ----------------
 ---- COLORS ----
@@ -188,9 +188,9 @@ hl.config({
 local mainMod = "SUPER"
 
 -- applications
-hl.bind(mainMod .. " + return", hl.dsp.exec_cmd("uwsm app -- " .. terminal))
-hl.bind(mainMod .. " + n", hl.dsp.exec_cmd("uwsm app -- " .. fileManager))
-hl.bind(mainMod .. " + d", hl.dsp.exec_cmd("uwsm app -- " .. menu))
+hl.bind(mainMod .. " + return", hl.dsp.exec_cmd("uwsm app -- " .. Terminal))
+hl.bind(mainMod .. " + n", hl.dsp.exec_cmd("uwsm app -- " .. FileManager))
+hl.bind(mainMod .. " + d", hl.dsp.exec_cmd("uwsm app -- " .. Menu))
 hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("uwsm app -- vivaldi"))
 hl.bind("CTRL + SHIFT + 4", hl.dsp.exec_cmd("hyprshot --freeze --mode=region --raw --clipboard-only | swappy -f -"))
 hl.bind("CTRL + SHIFT + 3", hl.dsp.exec_cmd("hyprshot -m window -m active --raw --clipboard-only | swappy -f -"))
