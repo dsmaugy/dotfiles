@@ -16,6 +16,12 @@ return {
           filetypes = { "html", "gotmpl.html" },
         },
         cssls = {},
+        ty = {
+          enabled = true,
+        },
+        pyright = {
+          enabled = false,
+        },
       },
     },
   },
