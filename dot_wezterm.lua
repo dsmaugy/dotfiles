@@ -6,8 +6,8 @@ wezterm.add_to_config_reload_watch_list("/home/darwin/.config/wezterm/colors/wez
 local config = wezterm.config_builder()
 
 -- f
-config.color_scheme = "wezterm-pywal"
--- config.color_scheme = "dayfox"
+-- config.color_scheme = "wezterm-pywal"
+config.color_scheme = "dayfox"
 
 config.font = wezterm.font("JuliaMono")
 config.harfbuzz_features = { "calt=0", "clig=0", "liga=0" }
@@ -19,7 +19,6 @@ table.insert(config.hyperlink_rules, {
 })
 
 config.enable_wayland = true
--- config.window_background_opacity = 0.80
 config.window_background_opacity = 0.90
 config.window_decorations = "TITLE | RESIZE"
 config.hide_tab_bar_if_only_one_tab = true

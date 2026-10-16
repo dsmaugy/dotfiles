@@ -2,13 +2,10 @@ return {
   "nvim-treesitter/nvim-treesitter",
   enabled = true,
   opts = { ensure_installed = { "glsl", "gotmpl", "java", "css" } },
-  ---@param opts TSConfig
-  config = function(_, opts)
-    if type(opts.ensure_installed) == "table" then
-      opts.ensure_installed = LazyVim.dedup(opts.ensure_installed)
-    end
-    -- require("nvim-treesitter.configs").setup(opts)
-
+  -- NOTE: don't override `config` here -- LazyVim's config is what calls
+  -- `TS.setup()`, installs missing parsers and creates the FileType autocmd
+  -- that runs `vim.treesitter.start()`. Put customizations in `init` instead.
+  init = function()
     vim.filetype.add({
       extension = {
         gotmpl = "gotmpl",

@@ -8,9 +8,11 @@ for n = 1, 9 do
   end, { desc = "[Bufferline] Go to " .. n .. "th buffer" })
 end
 
--- double tap escape to go back to normal mode
+-- Unique count so this float is not reused as LazyVim's <C-/> bottom terminal.
 vim.keymap.set({ "n", "t" }, "<C-t>", function()
   Snacks.terminal(nil, {
+    cwd = LazyVim.root(),
+    count = 99,
     win = {
       position = "float",
       relative = "editor",
