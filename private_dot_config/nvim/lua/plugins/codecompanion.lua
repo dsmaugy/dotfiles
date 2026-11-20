@@ -1,6 +1,6 @@
 return {
   "olimorris/codecompanion.nvim",
-  version = "^19.0.0",
+  version = "^20.0.0",
   dependencies = {
     "nvim-lua/plenary.nvim",
     "nvim-treesitter/nvim-treesitter",
@@ -17,6 +17,10 @@ return {
         -- Requires `npm i -g @agentclientprotocol/claude-agent-acp`
         claude_code = function()
           return require("codecompanion.adapters").extend("claude_code", {
+            env = {
+              -- Pin Opus 5.5 as the default model
+              ANTHROPIC_MODEL = function() return "claude-opus-5-5" end,
+            },
             defaults = {
               mcpServers = "inherit_from_config",
               session_config_options = {

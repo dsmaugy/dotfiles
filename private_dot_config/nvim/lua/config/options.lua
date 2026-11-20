@@ -8,6 +8,9 @@ vim.opt.mouse = ""
 
 vim.fn.setenv("GOFUMPT_SPLIT_LONG_LINES", "on")
 
+-- pynvim isn't installed, so the provider can't work; skip its ~5s interpreter probe on python files
+vim.g.loaded_python3_provider = 0
+
 vim.g.lazyvim_python_lsp = "pyright"
 vim.g.root_spec = { { ".git" }, "lsp", { "lua" }, "cwd" }
 

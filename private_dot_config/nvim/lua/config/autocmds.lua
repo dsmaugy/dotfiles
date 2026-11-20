@@ -42,13 +42,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 vim.api.nvim_create_autocmd("VimEnter", {
+  desc = "cd to the directory of the first file/dir argument",
   callback = function()
-    -- for i, arg in ipairs(vim.v.argv) do
-    --   vim.cmd('echom "Arg ' .. i .. ": " .. arg .. '"')
-    -- end
+    -- argv() holds only file arguments (no flags), unlike v:argv
+    local first = vim.fn.argv(0)
+    if first == "" then
+      return
+    end
 
-    local path = vim.fn.fnamemodify(vim.v.argv[3], ":p:h")
-    -- vim.cmd('echom "Changing directory to 3rd argument: ' .. path .. '"')
-    vim.cmd("silent! cd " .. path)
+    local path = vim.fn.fnamemodify(first, ":p")
+    if vim.fn.isdirectory(path) == 0 then
+      path = vim.fn.fnamemodify(path, ":h")
+    end
+    if vim.fn.isdirectory(path) == 1 then
+      vim.fn.chdir(path)
+    end
   end,
 })
